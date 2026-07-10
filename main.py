@@ -24,50 +24,348 @@ if "random_seed" not in st.session_state:
 
 
 # ============================================================
-# BLUE THEME
-# No custom HTML headings are used.
+# PROFESSIONAL DEPLOYMENT-SAFE DARK BLUE THEME
 # ============================================================
 
 st.markdown(
     """
     <style>
+
+    /* MAIN APPLICATION */
+
+    html,
+    body,
+    [data-testid="stAppViewContainer"],
     .stApp {
-        background-color: #F3F8FD;
+        background-color: #0B1120 !important;
+        color: #E5E7EB !important;
     }
 
     [data-testid="stHeader"] {
-        background-color: #F3F8FD;
+        background-color: rgba(11, 17, 32, 0.96) !important;
     }
+
+    [data-testid="stMainBlockContainer"] {
+        background-color: #0B1120 !important;
+    }
+
+
+    /* MAIN PAGE TEXT */
+
+    [data-testid="stMain"] h1 {
+        color: #F8FAFC !important;
+    }
+
+    [data-testid="stMain"] h2,
+    [data-testid="stMain"] h3 {
+        color: #DBEAFE !important;
+    }
+
+    [data-testid="stMain"] p,
+    [data-testid="stMain"] label,
+    [data-testid="stMain"] li {
+        color: #CBD5E1 !important;
+    }
+
+
+    /* SIDEBAR */
 
     [data-testid="stSidebar"] {
-        background-color: #DCEEFF;
+        background-color: #111827 !important;
+        border-right: 1px solid #263449;
     }
 
-    [data-testid="stSidebar"] h1,
-    [data-testid="stSidebar"] h2,
-    [data-testid="stSidebar"] h3,
-    [data-testid="stSidebar"] label,
-    [data-testid="stSidebar"] p {
-        color: #102A43;
+    [data-testid="stSidebar"] h1 {
+        color: #F8FAFC !important;
     }
+
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        color: #BFDBFE !important;
+    }
+
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] span {
+        color: #CBD5E1;
+    }
+
+
+    /* SELECT BOXES AND INPUTS */
+
+    [data-baseweb="select"] > div {
+        background-color: #182235 !important;
+        border-color: #334155 !important;
+        color: #F8FAFC !important;
+    }
+
+    [data-baseweb="select"] span {
+        color: #F8FAFC !important;
+    }
+
+    [data-baseweb="popover"] {
+        color: #E5E7EB !important;
+    }
+
+    [role="listbox"] {
+        background-color: #182235 !important;
+    }
+
+    [role="option"] {
+        color: #E5E7EB !important;
+        background-color: #182235 !important;
+    }
+
+    [role="option"]:hover {
+        background-color: #24324A !important;
+    }
+
+    [data-testid="stNumberInput"] input {
+        background-color: #182235 !important;
+        color: #F8FAFC !important;
+        border-color: #334155 !important;
+    }
+
+
+    /* SLIDERS */
+
+    [data-testid="stSlider"] label {
+        color: #CBD5E1 !important;
+    }
+
+    [data-testid="stSlider"] [data-baseweb="slider"] div[role="slider"] {
+        background-color: #3B82F6 !important;
+    }
+
+
+    /* CHECKBOX */
+
+    [data-testid="stCheckbox"] label,
+    [data-testid="stCheckbox"] p {
+        color: #CBD5E1 !important;
+    }
+
+
+    /* BUTTON */
 
     div.stButton > button {
-        background-color: #1565C0;
-        color: white;
-        border: none;
+        background-color: #2563EB !important;
+        color: #FFFFFF !important;
+
+        border: 1px solid #3B82F6 !important;
         border-radius: 8px;
+
         font-weight: 600;
+
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease;
     }
 
     div.stButton > button:hover {
-        background-color: #0D47A1;
-        color: white;
-        border: none;
+        background-color: #1D4ED8 !important;
+        color: #FFFFFF !important;
+
+        border-color: #60A5FA !important;
+
+        transform: translateY(-1px);
     }
+
+    div.stButton > button:focus {
+        color: #FFFFFF !important;
+        border-color: #93C5FD !important;
+    }
+
+
+    /* INFO BOX */
+
+    [data-testid="stAlert"] {
+        background-color: #111D33 !important;
+        border: 1px solid #29466F !important;
+        border-radius: 8px;
+    }
+
+    [data-testid="stAlert"] p {
+        color: #DBEAFE !important;
+    }
+
+    [data-testid="stAlert"] svg {
+        color: #60A5FA !important;
+        fill: #60A5FA !important;
+    }
+
+
+    /* METRIC CARDS */
+
+    [data-testid="stMetric"] {
+        background-color: #111827 !important;
+
+        border: 1px solid #263449;
+        border-radius: 10px;
+
+        padding: 18px;
+    }
+
+    [data-testid="stMetricLabel"] p {
+        color: #94A3B8 !important;
+    }
+
+    [data-testid="stMetricValue"] {
+        color: #F8FAFC !important;
+    }
+
+
+    /* CODE BLOCK */
+
+    [data-testid="stCodeBlock"] {
+        border: 1px solid #334155;
+        border-radius: 8px;
+    }
+
+    [data-testid="stCodeBlock"] pre {
+        background-color: #111827 !important;
+        color: #E2E8F0 !important;
+    }
+
+
+    /* DATAFRAME */
+
+    [data-testid="stDataFrame"] {
+        border: 1px solid #334155;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+
+    /* EXPANDER */
+
+    [data-testid="stExpander"] {
+        background-color: #111827 !important;
+
+        border: 1px solid #334155 !important;
+        border-radius: 8px;
+    }
+
+    [data-testid="stExpander"] summary {
+        color: #DBEAFE !important;
+    }
+
+    [data-testid="stExpander"] p {
+        color: #CBD5E1 !important;
+    }
+
+
+    /* DIVIDERS */
+
+    hr {
+        border-color: #263449 !important;
+    }
+
+
+    /* LINKS */
+
+    a {
+        color: #60A5FA !important;
+    }
+
+    a:hover {
+        color: #93C5FD !important;
+    }
+
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #0B1120;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+    }
+
     </style>
     """,
     unsafe_allow_html=True,
 )
+
+
+# ============================================================
+# MATPLOTLIB THEME
+# ============================================================
+
+PLOT_BACKGROUND = "#111827"
+PLOT_AREA = "#0F172A"
+PLOT_TEXT = "#E5E7EB"
+PLOT_GRID = "#475569"
+PLOT_LINE = "#60A5FA"
+PLOT_ACCENT = "#A78BFA"
+
+
+def style_figure(figure):
+    figure.patch.set_facecolor(PLOT_BACKGROUND)
+
+
+def format_axis(
+    axis,
+    title,
+    xlabel="Time (seconds)",
+    ylabel="Amplitude",
+):
+    axis.set_facecolor(PLOT_AREA)
+
+    axis.set_title(
+        title,
+        color=PLOT_TEXT,
+        fontweight="bold",
+        pad=12,
+    )
+
+    axis.set_xlabel(
+        xlabel,
+        color=PLOT_TEXT,
+    )
+
+    axis.set_ylabel(
+        ylabel,
+        color=PLOT_TEXT,
+    )
+
+    axis.tick_params(
+        axis="both",
+        colors=PLOT_TEXT,
+    )
+
+    axis.grid(
+        True,
+        alpha=0.28,
+        color=PLOT_GRID,
+    )
+
+    for spine in axis.spines.values():
+        spine.set_color(PLOT_GRID)
+
+
+def display_figure(figure):
+    style_figure(figure)
+
+    figure.tight_layout()
+
+    st.pyplot(
+        figure,
+        use_container_width=True,
+    )
+
+    plt.close(figure)
 
 
 # ============================================================
@@ -173,6 +471,7 @@ def add_awgn(signal, snr_db, rng):
             rng.standard_normal(signal.shape)
             + 1j * rng.standard_normal(signal.shape)
         )
+
     else:
         noise = (
             np.sqrt(noise_power)
@@ -180,29 +479,6 @@ def add_awgn(signal, snr_db, rng):
         )
 
     return signal + noise
-
-
-def format_axis(
-    axis,
-    title,
-    xlabel="Time (seconds)",
-    ylabel="Amplitude"
-):
-    axis.set_title(title, fontweight="bold")
-    axis.set_xlabel(xlabel)
-    axis.set_ylabel(ylabel)
-    axis.grid(True, alpha=0.3)
-
-
-def display_figure(figure):
-    figure.tight_layout()
-
-    st.pyplot(
-        figure,
-        use_container_width=True
-    )
-
-    plt.close(figure)
 
 
 # ============================================================
@@ -213,7 +489,6 @@ def generate_am(fs, duration, fm, fc, modulation_index):
     t = np.arange(0, duration, 1 / fs)
 
     message = np.cos(2 * np.pi * fm * t)
-
     carrier = np.cos(2 * np.pi * fc * t)
 
     modulated_signal = (
@@ -227,7 +502,6 @@ def generate_fm(fs, duration, fm, fc, beta):
     t = np.arange(0, duration, 1 / fs)
 
     message = np.cos(2 * np.pi * fm * t)
-
     carrier = np.cos(2 * np.pi * fc * t)
 
     frequency_deviation = beta * fm
@@ -253,7 +527,7 @@ def generate_ask(fs, fc, bit_count, rng):
 
     digital_signal = np.repeat(
         bits,
-        samples_per_bit
+        samples_per_bit,
     )
 
     t = np.arange(len(digital_signal)) / fs
@@ -274,7 +548,7 @@ def generate_bpsk(fs, fc, bit_count, rng):
 
     digital_signal = np.repeat(
         bipolar_bits,
-        samples_per_bit
+        samples_per_bit,
     )
 
     t = np.arange(len(digital_signal)) / fs
@@ -351,7 +625,7 @@ def generate_ofdm(subcarriers, rng):
     bits = rng.integers(
         0,
         2,
-        2 * subcarriers
+        2 * subcarriers,
     )
 
     pairs = bits.reshape(-1, 2)
@@ -489,7 +763,7 @@ with st.sidebar:
 
     if st.button(
         "Generate New Random Data",
-        use_container_width=True
+        use_container_width=True,
     ):
         st.session_state.random_seed += 1
 
@@ -531,17 +805,17 @@ metric1, metric2, metric3 = st.columns(3)
 
 metric1.metric(
     "Bits per Symbol",
-    info["bits"]
+    info["bits"],
 )
 
 metric2.metric(
     "Bandwidth Efficiency",
-    info["efficiency"]
+    info["efficiency"],
 )
 
 metric3.metric(
     "Noise Robustness",
-    info["robustness"]
+    info["robustness"],
 )
 
 st.divider()
@@ -575,11 +849,7 @@ if technique == "AM":
     )
 
     signal = (
-        add_awgn(
-            clean_signal,
-            snr_db,
-            rng
-        )
+        add_awgn(clean_signal, snr_db, rng)
         if noise_enabled
         else clean_signal
     )
@@ -587,25 +857,40 @@ if technique == "AM":
     fig, axes = plt.subplots(
         3,
         1,
-        figsize=(12, 8)
+        figsize=(12, 8),
     )
 
-    axes[0].plot(t, message)
+    axes[0].plot(
+        t,
+        message,
+        color=PLOT_LINE,
+    )
+
     format_axis(
         axes[0],
-        "Message Signal"
+        "Message Signal",
     )
 
-    axes[1].plot(t, carrier)
+    axes[1].plot(
+        t,
+        carrier,
+        color=PLOT_ACCENT,
+    )
+
     format_axis(
         axes[1],
-        "Carrier Signal"
+        "Carrier Signal",
     )
 
-    axes[2].plot(t, signal)
+    axes[2].plot(
+        t,
+        signal,
+        color=PLOT_LINE,
+    )
+
     format_axis(
         axes[2],
-        "AM Modulated Signal"
+        "AM Modulated Signal",
     )
 
     display_figure(fig)
@@ -623,11 +908,7 @@ elif technique == "FM":
     )
 
     signal = (
-        add_awgn(
-            clean_signal,
-            snr_db,
-            rng
-        )
+        add_awgn(clean_signal, snr_db, rng)
         if noise_enabled
         else clean_signal
     )
@@ -635,25 +916,40 @@ elif technique == "FM":
     fig, axes = plt.subplots(
         3,
         1,
-        figsize=(12, 8)
+        figsize=(12, 8),
     )
 
-    axes[0].plot(t, message)
+    axes[0].plot(
+        t,
+        message,
+        color=PLOT_LINE,
+    )
+
     format_axis(
         axes[0],
-        "Message Signal"
+        "Message Signal",
     )
 
-    axes[1].plot(t, carrier)
+    axes[1].plot(
+        t,
+        carrier,
+        color=PLOT_ACCENT,
+    )
+
     format_axis(
         axes[1],
-        "Reference Carrier Signal"
+        "Reference Carrier Signal",
     )
 
-    axes[2].plot(t, signal)
+    axes[2].plot(
+        t,
+        signal,
+        color=PLOT_LINE,
+    )
+
     format_axis(
         axes[2],
-        "FM Modulated Signal"
+        "FM Modulated Signal",
     )
 
     display_figure(fig)
@@ -670,11 +966,7 @@ elif technique == "ASK":
     )
 
     signal = (
-        add_awgn(
-            clean_signal,
-            snr_db,
-            rng
-        )
+        add_awgn(clean_signal, snr_db, rng)
         if noise_enabled
         else clean_signal
     )
@@ -687,19 +979,29 @@ elif technique == "ASK":
     fig, axes = plt.subplots(
         2,
         1,
-        figsize=(12, 7)
+        figsize=(12, 7),
     )
 
-    axes[0].plot(t, data)
+    axes[0].plot(
+        t,
+        data,
+        color=PLOT_ACCENT,
+    )
+
     format_axis(
         axes[0],
-        "Binary Data"
+        "Binary Data",
     )
 
-    axes[1].plot(t, signal)
+    axes[1].plot(
+        t,
+        signal,
+        color=PLOT_LINE,
+    )
+
     format_axis(
         axes[1],
-        "ASK Modulated Signal"
+        "ASK Modulated Signal",
     )
 
     display_figure(fig)
@@ -716,11 +1018,7 @@ elif technique == "BPSK":
     )
 
     signal = (
-        add_awgn(
-            clean_signal,
-            snr_db,
-            rng
-        )
+        add_awgn(clean_signal, snr_db, rng)
         if noise_enabled
         else clean_signal
     )
@@ -733,19 +1031,29 @@ elif technique == "BPSK":
     fig, axes = plt.subplots(
         2,
         1,
-        figsize=(12, 7)
+        figsize=(12, 7),
     )
 
-    axes[0].plot(t, data)
+    axes[0].plot(
+        t,
+        data,
+        color=PLOT_ACCENT,
+    )
+
     format_axis(
         axes[0],
-        "Bipolar Binary Data"
+        "Bipolar Binary Data",
     )
 
-    axes[1].plot(t, signal)
+    axes[1].plot(
+        t,
+        signal,
+        color=PLOT_LINE,
+    )
+
     format_axis(
         axes[1],
-        "BPSK Modulated Signal"
+        "BPSK Modulated Signal",
     )
 
     display_figure(fig)
@@ -756,15 +1064,11 @@ elif technique == "BPSK":
 elif technique == "QPSK":
     bits, clean_symbols = generate_qpsk(
         bit_count,
-        rng
+        rng,
     )
 
     symbols = (
-        add_awgn(
-            clean_symbols,
-            snr_db,
-            rng
-        )
+        add_awgn(clean_symbols, snr_db, rng)
         if noise_enabled
         else clean_symbols
     )
@@ -775,18 +1079,28 @@ elif technique == "QPSK":
     )
 
     fig, ax = plt.subplots(
-        figsize=(8, 7)
+        figsize=(8, 7),
     )
 
     ax.scatter(
         symbols.real,
         symbols.imag,
         s=80,
-        alpha=0.8
+        alpha=0.85,
+        color=PLOT_LINE,
     )
 
-    ax.axhline(0, linewidth=1)
-    ax.axvline(0, linewidth=1)
+    ax.axhline(
+        0,
+        linewidth=1,
+        color=PLOT_GRID,
+    )
+
+    ax.axvline(
+        0,
+        linewidth=1,
+        color=PLOT_GRID,
+    )
 
     format_axis(
         ax,
@@ -797,7 +1111,7 @@ elif technique == "QPSK":
 
     ax.set_aspect(
         "equal",
-        adjustable="box"
+        adjustable="box",
     )
 
     display_figure(fig)
@@ -808,15 +1122,11 @@ elif technique == "QPSK":
 elif technique == "16-QAM":
     bits, clean_symbols = generate_16qam(
         bit_count,
-        rng
+        rng,
     )
 
     symbols = (
-        add_awgn(
-            clean_symbols,
-            snr_db,
-            rng
-        )
+        add_awgn(clean_symbols, snr_db, rng)
         if noise_enabled
         else clean_symbols
     )
@@ -827,18 +1137,28 @@ elif technique == "16-QAM":
     )
 
     fig, ax = plt.subplots(
-        figsize=(8, 7)
+        figsize=(8, 7),
     )
 
     ax.scatter(
         symbols.real,
         symbols.imag,
         s=75,
-        alpha=0.8
+        alpha=0.85,
+        color=PLOT_ACCENT,
     )
 
-    ax.axhline(0, linewidth=1)
-    ax.axvline(0, linewidth=1)
+    ax.axhline(
+        0,
+        linewidth=1,
+        color=PLOT_GRID,
+    )
+
+    ax.axvline(
+        0,
+        linewidth=1,
+        color=PLOT_GRID,
+    )
 
     format_axis(
         ax,
@@ -849,7 +1169,7 @@ elif technique == "16-QAM":
 
     ax.set_aspect(
         "equal",
-        adjustable="box"
+        adjustable="box",
     )
 
     display_figure(fig)
@@ -860,15 +1180,11 @@ elif technique == "16-QAM":
 elif technique == "OFDM":
     bits, qpsk_symbols, clean_signal = generate_ofdm(
         ofdm_subcarriers,
-        rng
+        rng,
     )
 
     signal = (
-        add_awgn(
-            clean_signal,
-            snr_db,
-            rng
-        )
+        add_awgn(clean_signal, snr_db, rng)
         if noise_enabled
         else clean_signal
     )
@@ -880,13 +1196,23 @@ elif technique == "OFDM":
     fig, axes = plt.subplots(
         3,
         1,
-        figsize=(12, 9)
+        figsize=(12, 9),
     )
 
-    axes[0].stem(
+    markerline, stemlines, baseline = axes[0].stem(
         samples,
         np.abs(qpsk_symbols),
-        basefmt=" "
+        basefmt=" ",
+    )
+
+    plt.setp(
+        markerline,
+        color=PLOT_LINE,
+    )
+
+    plt.setp(
+        stemlines,
+        color=PLOT_LINE,
     )
 
     format_axis(
@@ -898,7 +1224,8 @@ elif technique == "OFDM":
 
     axes[1].plot(
         samples,
-        signal.real
+        signal.real,
+        color=PLOT_ACCENT,
     )
 
     format_axis(
@@ -910,7 +1237,8 @@ elif technique == "OFDM":
 
     axes[2].plot(
         samples,
-        np.abs(signal)
+        np.abs(signal),
+        color=PLOT_LINE,
     )
 
     format_axis(
@@ -1010,7 +1338,7 @@ st.divider()
 
 with st.expander(
     "Practical Analysis and Conclusion",
-    expanded=False
+    expanded=False,
 ):
     st.write(
         """
